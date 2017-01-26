@@ -18,6 +18,15 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void keepOnlyBlue()
+  {
+	 Picture beach = new Picture("beach.jpg");
+	 beach.explore();
+	 beach.keepOnlyBlue();
+	 beach.explore();
+	  
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -49,7 +58,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("Temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -71,6 +80,40 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testEdgeDetection2()
+  {
+	  Picture swan = new Picture("swan.jpg");
+	  swan.edgeDetection2(10);
+	  swan.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.dupe();
+	  snowman.explore();
+  }
+  
+  public static void testNegate()
+  {
+	  Picture flower = new Picture("CumberlandIsland.jpg");
+	  flower.negate();
+	  flower.explore();
+  }
+  
+  public static void oneImageFiveFilters()
+  {
+	  Picture star = new Picture("starWarsLogo.jpg");
+	  star.negate();
+	  star.mirrorHorizontalBottomToTop();
+	  star.mirrorVerticalRightToLeft();
+	  star.zeroBlue();
+	  star.negate();
+	  
+	  star.explore();
+	  
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -87,7 +130,7 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
-	testMirrorHorizontalBottomToTop();
+	//testMirrorHorizontalBottomToTop();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
@@ -101,5 +144,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	//keepOnlyBlue();
+	  oneImageFiveFilters();
   }
 }
