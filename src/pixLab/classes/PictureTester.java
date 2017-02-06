@@ -112,7 +112,7 @@ public class PictureTester
 	  
 	  star.explore();
 	  
-  }
+  } 
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -135,7 +135,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -145,6 +145,6 @@ public class PictureTester
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
 	//keepOnlyBlue();
-	  oneImageFiveFilters();
+	//oneImageFiveFilters();
   }
 }
