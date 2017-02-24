@@ -1,4 +1,5 @@
 package pixLab.classes;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -109,10 +110,33 @@ public class PictureTester
 	  star.mirrorVerticalRightToLeft();
 	  star.zeroBlue();
 	  star.negate();
-	  
-	  star.explore();
+	  star.write("ultraStarWars.jpg");
+	 
 	  
   } 
+  
+  public static void testGlitchArt()
+  {
+	  Picture Korn = new Picture("Korn_OG.jpg");
+	  Korn.glitchArt();
+	  Korn.explore();
+	  Korn.write("KornGlitch.jpg");
+  }
+  
+  public static void testValMeme()
+  {
+	  Picture val = new Picture("backgroundredboba.png");
+	  val.addMessage("Are you a double?", 100, 150);
+	  val.addMessage("Cause thought of you always", 100, 200);
+	  val.addMessage("Floats in my head.", 100, 250);
+	  val.addMessage("To: ", 100, 400);
+	  val.addMessage("From: ", 100, 500);
+	  val.write("valinBoba.png");
+	  val.explore();
+	  
+
+	  
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -135,7 +159,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testCollage();
+    //testCollage();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
@@ -146,5 +170,7 @@ public class PictureTester
     //testGetAverageForColumn(0);
 	//keepOnlyBlue();
 	//oneImageFiveFilters();
+	//testValMeme();
+	  testGlitchArt();
   }
 }

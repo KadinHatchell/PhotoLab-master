@@ -339,8 +339,7 @@ public class Picture extends SimplePicture
     this.mirrorHorizontalBottomToTop();
     this.write("collage.jpg");
   }
-  
-  
+    
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
@@ -365,6 +364,31 @@ public class Picture extends SimplePicture
           leftPixel.setColor(Color.WHITE);
       }
     }
+  }
+  public void stripeRGB()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  if(col < pixels[0].length /3)
+			  {
+				  pixels[row][col].setRed(10);
+				  pixels[row][col].setGreen(255);
+			  }
+			  else if(col < (pixels[5].length /3) + (pixels[0].length /3))
+			  {
+				  pixels[row][col].setBlue(255);
+				  pixels[row][col].setGreen(10);
+			  }
+			  else
+			  {
+				  pixels[row][col].setBlue(255);
+				  pixels[row][col].setRed(10);
+			  }
+		  }
+	  }
   }
   
   public void edgeDetection2(int edgeDist)
@@ -400,6 +424,76 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void valMemeColor()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels)
+	  {
+		  for (Pixel pixelOBJ : rowArray)
+		  {
+			  
+		  }
+	  }
+	  
+  }
+  
+  public void fullRandom()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  int green = (int) (Math.random() * 256);
+			  int blue = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(red, green, blue));
+			  
+		  }
+	  }
+  }
+  
+  public void fullRandomRed()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for (Pixel [] row : currentPicture)
+	  {
+		  for(Pixel currentPixel : row)
+		  {
+			  int red = (int) (Math.random() * 256);
+			  
+			  currentPixel.setColor(new Color(red, currentPixel.getGreen(), currentPixel.getBlue() ));
+			  
+		  }
+	  }
+  }
+  
+  public void sectionalRandom()
+  {
+	  Pixel [][] currentPicture = this.getPixels2D();
+	  for(int row = 0; row < currentPicture.length; row++)
+	  {
+		  for(int col = 0; col < currentPicture[0].length; col++)
+		  {
+			  if (row % 15 == 0)
+			  {
+				  int red = (int) (Math.random() * 256);
+				  int green = (int) (Math.random() * 256);
+				  int blue = (int) (Math.random() * 256);
+				  
+				  currentPicture[row][col].setColor(new Color(red,green,blue));
+			  }
+		  }
+	  }
+  }
+  
+  public void glitchArt()
+  {
+	  this.edgeDetection2(10);
+	  this.stripeRGB();
+	  this.sectionalRandom();
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
